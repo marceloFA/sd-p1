@@ -11,7 +11,7 @@ class ArchiveServer:
     e os métodos de manipulação de perfis"""
 
     def __init__(self):
-        """ Popula a instânia com os exemplos de perfis criados em profile.py"""        
+        """ Popula a instânia com os exemplos de perfis criados em profile.py"""
         self.profiles = profile_records
 
     def list_profiles(self) -> [Profile]:
@@ -85,7 +85,8 @@ def run_server(nameserver: bool = False):
     endpoints_wrapper = {ArchiveServer: "ArchiveServer"}
     Pyro4.Daemon.serveSimple(
         objects=endpoints_wrapper,
-        host=None,
+        host='200.239.72.248',
+        port=8089,
         ns=nameserver
     )
 

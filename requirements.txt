@@ -1,3 +1,4 @@
 Pyro4
 recordclass
 pytest
+pytest-benchmark
