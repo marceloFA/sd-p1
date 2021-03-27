@@ -18,6 +18,15 @@ Profile = recordclass(
     ],
 )
 
+def profile_deserializer(response):
+        """ Reconstrói o objeto após a chegada da resposta
+        da chamada remota do método. Deve ser usado do lado do cliente """
+
+        if isinstance(response, list):
+                return [Profile(**item) for item in response]
+        elif isinstance(response, dict):
+                return Profile(**response)
+
 # Exemplos de perfis
 p1 = Profile(
     email="KaueCavalcantiCastro@teleworm.us",
