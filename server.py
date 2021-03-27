@@ -83,7 +83,11 @@ def run_server(nameserver: bool = False):
     """ Expõe o ArchiveServer para chamadas de método remotas """
 
     endpoints_wrapper = {ArchiveServer: "ArchiveServer"}
-    Pyro4.Daemon.serveSimple(endpoints_wrapper, ns=nameserver)
+    Pyro4.Daemon.serveSimple(
+        objects=endpoints_wrapper,
+        host=None,
+        ns=nameserver
+    )
 
 
 if __name__ == "__main__":
