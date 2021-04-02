@@ -1,3 +1,4 @@
+
 import pytest
 import Pyro4
 
@@ -5,7 +6,7 @@ from models import profile_deserializer
 
 @pytest.fixture
 def server():
-    uri = 'PYRO:ArchiveServer@localhost:46817'
+    uri = 'PYRO:ArchiveServer@192.168.0.107:1234'
     return Pyro4.Proxy(uri)
 
 
@@ -45,6 +46,7 @@ def test_item_1(server, benchmark):
         benchmark.pedantic(
             item_1,
             args=(server,),
+            rounds=20,
             iterations=100,
         )
 
@@ -52,6 +54,7 @@ def test_item_2(server, benchmark):
         benchmark.pedantic(
             item_2,
             args=(server,),
+            rounds=20,
             iterations=100,
         )
 
@@ -59,6 +62,7 @@ def test_item_3(server, benchmark):
         benchmark.pedantic(
             item_3,
             args=(server,),
+            rounds=20,
             iterations=100,
         )
 
@@ -66,14 +70,16 @@ def test_item_4(server, benchmark):
         benchmark.pedantic(
             item_4,
             args=(server,),
+            rounds=20,
             iterations=100,
         )
 
 
-def test_item_6(server, benchmark):
+def test_item_5(server, benchmark):
         benchmark.pedantic(
             item_5,
             args=(server,),
+            rounds=20,
             iterations=100,
         )
 
@@ -82,5 +88,6 @@ def test_item_6(server, benchmark):
         benchmark.pedantic(
             item_6,
             args=(server,),
+            rounds=20,
             iterations=100,
         )

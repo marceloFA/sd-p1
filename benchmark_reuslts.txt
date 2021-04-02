@@ -1,0 +1,69 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.5, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/marcelo/sd-p1
+plugins: benchmark-3.2.3
+collected 6 items
+
+test_benchmark.py ....F.                                                 [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_item_5 __________________________________
+
+server = <Pyro4.core.Proxy at 0x7f561f9a0a60; connected IPv4; for PYRO:ArchiveServer@192.168.0.107:1234>
+benchmark = <pytest_benchmark.fixture.BenchmarkFixture object at 0x7f561f9a0a00>
+
+    def test_item_5(server, benchmark):
+>           benchmark.pedantic(
+                item_5,
+                args=(server,),
+                rounds=20,
+                iterations=100,
+            )
+
+test_benchmark.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+venv/lib/python3.8/site-packages/pytest_benchmark/fixture.py:139: in pedantic
+    return self._raw_pedantic(target, args=args, kwargs=kwargs, setup=setup, rounds=rounds,
+venv/lib/python3.8/site-packages/pytest_benchmark/fixture.py:227: in _raw_pedantic
+    result = target(*args, **kwargs)
+test_benchmark.py:35: in item_5
+    all_profiles = server.list_profiles()
+venv/lib/python3.8/site-packages/Pyro4/core.py:185: in __call__
+    return self.__send(self.__name, args, kwargs)
+venv/lib/python3.8/site-packages/Pyro4/core.py:467: in _pyroInvoke
+    data = serializer.deserializeData(msg.data, compressed=msg.flags & message.FLAGS_COMPRESSED)
+venv/lib/python3.8/site-packages/Pyro4/util.py:171: in deserializeData
+    return self.loads(data)
+venv/lib/python3.8/site-packages/Pyro4/util.py:614: in loads
+    return self.recreate_classes(serpent.loads(data))
+venv/lib/python3.8/site-packages/serpent.py:75: in loads
+    serialized = codecs.decode(serialized_bytes, "utf-8")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = b'# serpent utf-8 python3.2\n[{\'email\':\'KaueCavalcantiCastro@teleworm.us\',\'first_name\':\'Kau\xc3\xaa\',\'last_na...\':\'Est\xc3\xa1gio em desenvolviemnto de aplica\xc3\xa7\xc3\xb5es de bancos de dados, Egenheiro de software livre\'}]'
+errors = 'strict'
+
+    def decode(input, errors='strict'):
+>       return codecs.utf_8_decode(input, errors, True)
+E       UnicodeDecodeError: 'utf-8' codec can't decode byte 0xce in position 421322: invalid continuation byte
+
+/usr/lib/python3.8/encodings/utf_8.py:16: UnicodeDecodeError
+
+Computing stats ...Computing stats ... group 1/1Computing stats ... group 1/1: minComputing stats ... group 1/1: min (1/6)Computing stats ... group 1/1: min (2/6)Computing stats ... group 1/1: min (3/6)Computing stats ... group 1/1: min (4/6)Computing stats ... group 1/1: min (5/6)Computing stats ... group 1/1: min (6/6)Computing stats ... group 1/1: min (1/6)Computing stats ... group 1/1: min (2/6)Computing stats ... group 1/1: min (3/6)Computing stats ... group 1/1: min (4/6)Computing stats ... group 1/1: min (5/6)Computing stats ... group 1/1: min (6/6)Computing stats ... group 1/1: maxComputing stats ... group 1/1: max (1/6)Computing stats ... group 1/1: max (2/6)Computing stats ... group 1/1: max (3/6)Computing stats ... group 1/1: max (4/6)Computing stats ... group 1/1: max (5/6)Computing stats ... group 1/1: max (6/6)Computing stats ... group 1/1: max (1/6)Computing stats ... group 1/1: max (2/6)Computing stats ... group 1/1: max (3/6)Computing stats ... group 1/1: max (4/6)Computing stats ... group 1/1: max (5/6)Computing stats ... group 1/1: max (6/6)Computing stats ... group 1/1: meanComputing stats ... group 1/1: mean (1/6)Computing stats ... group 1/1: mean (2/6)Computing stats ... group 1/1: mean (3/6)Computing stats ... group 1/1: mean (4/6)Computing stats ... group 1/1: mean (5/6)Computing stats ... group 1/1: mean (6/6)Computing stats ... group 1/1: mean (1/6)Computing stats ... group 1/1: mean (2/6)Computing stats ... group 1/1: mean (3/6)Computing stats ... group 1/1: mean (4/6)Computing stats ... group 1/1: mean (5/6)Computing stats ... group 1/1: mean (6/6)Computing stats ... group 1/1: medianComputing stats ... group 1/1: median (1/6)Computing stats ... group 1/1: median (2/6)Computing stats ... group 1/1: median (3/6)Computing stats ... group 1/1: median (4/6)Computing stats ... group 1/1: median (5/6)Computing stats ... group 1/1: median (6/6)Computing stats ... group 1/1: median (1/6)Computing stats ... group 1/1: median (2/6)Computing stats ... group 1/1: median (3/6)Computing stats ... group 1/1: median (4/6)Computing stats ... group 1/1: median (5/6)Computing stats ... group 1/1: median (6/6)Computing stats ... group 1/1: iqrComputing stats ... group 1/1: iqr (1/6)Computing stats ... group 1/1: iqr (2/6)Computing stats ... group 1/1: iqr (3/6)Computing stats ... group 1/1: iqr (4/6)Computing stats ... group 1/1: iqr (5/6)Computing stats ... group 1/1: iqr (6/6)Computing stats ... group 1/1: iqr (1/6)Computing stats ... group 1/1: iqr (2/6)Computing stats ... group 1/1: iqr (3/6)Computing stats ... group 1/1: iqr (4/6)Computing stats ... group 1/1: iqr (5/6)Computing stats ... group 1/1: iqr (6/6)Computing stats ... group 1/1: stddevComputing stats ... group 1/1: stddev (1/6)Computing stats ... group 1/1: stddev (2/6)Computing stats ... group 1/1: stddev (3/6)Computing stats ... group 1/1: stddev (4/6)Computing stats ... group 1/1: stddev (5/6)Computing stats ... group 1/1: stddev (6/6)Computing stats ... group 1/1: stddev (1/6)Computing stats ... group 1/1: stddev (2/6)Computing stats ... group 1/1: stddev (3/6)Computing stats ... group 1/1: stddev (4/6)Computing stats ... group 1/1: stddev (5/6)Computing stats ... group 1/1: stddev (6/6)Computing stats ... group 1/1: opsComputing stats ... group 1/1: ops (1/6)Computing stats ... group 1/1: ops (2/6)Computing stats ... group 1/1: ops (3/6)Computing stats ... group 1/1: ops (4/6)Computing stats ... group 1/1: ops (5/6)Computing stats ... group 1/1: ops (6/6)Computing stats ... group 1/1: ops (1/6)Computing stats ... group 1/1: ops (2/6)Computing stats ... group 1/1: ops (3/6)Computing stats ... group 1/1: ops (4/6)Computing stats ... group 1/1: ops (5/6)Computing stats ... group 1/1: ops (6/6)Computing stats ... group 1/1: ops: outliersComputing stats ... group 1/1: ops: outliers (1/6)Computing stats ... group 1/1: ops: outliers (2/6)Computing stats ... group 1/1: ops: outliers (3/6)Computing stats ... group 1/1: ops: outliers (4/6)Computing stats ... group 1/1: ops: outliers (5/6)Computing stats ... group 1/1: ops: outliers (6/6)Computing stats ... group 1/1: ops: roundsComputing stats ... group 1/1: ops: rounds (1/6)Computing stats ... group 1/1: ops: rounds (2/6)Computing stats ... group 1/1: ops: rounds (3/6)Computing stats ... group 1/1: ops: rounds (4/6)Computing stats ... group 1/1: ops: rounds (5/6)Computing stats ... group 1/1: ops: rounds (6/6)Computing stats ... group 1/1: ops: iterationsComputing stats ... group 1/1: ops: iterations (1/6)Computing stats ... group 1/1: ops: iterations (2/6)Computing stats ... group 1/1: ops: iterations (3/6)Computing stats ... group 1/1: ops: iterations (4/6)Computing stats ... group 1/1: ops: iterations (5/6)Computing stats ... group 1/1: ops: iterations (6/6)----------------------------------------------------------------------------------- benchmark: 6 tests -----------------------------------------------------------------------------------
+Name (time in ms)         Min                 Max                Mean            StdDev              Median                IQR            Outliers       OPS            Rounds  Iterations
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_item_2            3.1592 (1.0)        3.7886 (1.0)        3.3979 (1.0)      0.1848 (1.0)        3.3581 (1.0)       0.2970 (1.0)           9;0  294.2972 (1.0)          20         100
+test_item_4            3.2325 (1.02)       4.2315 (1.12)       3.5250 (1.04)     0.2783 (1.51)       3.4566 (1.03)      0.3483 (1.17)          6;1  283.6840 (0.96)         20         100
+test_item_6            3.3144 (1.05)      15.7021 (4.14)       5.3073 (1.56)     2.7904 (15.10)      4.5732 (1.36)      2.4138 (8.13)          2;1  188.4206 (0.64)         20         100
+test_item_3            3.4360 (1.09)       8.6598 (2.29)       4.3134 (1.27)     1.1309 (6.12)       3.9832 (1.19)      0.5089 (1.71)          2;2  231.8342 (0.79)         20         100
+test_item_1            3.5152 (1.11)       9.6564 (2.55)       4.2623 (1.25)     1.3951 (7.55)       3.8365 (1.14)      0.5137 (1.73)          2;2  234.6149 (0.80)         20         100
+test_item_5           94.1626 (29.81)    126.5112 (33.39)    113.8261 (33.50)    8.9720 (48.54)    113.8916 (33.92)    14.5636 (49.04)         7;0    8.7853 (0.03)         20         100
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Legend:
+  Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
+  OPS: Operations Per Second, computed as 1 / Mean
+=========================== short test summary info ============================
+FAILED test_benchmark.py::test_item_5 - UnicodeDecodeError: 'utf-8' codec can...
+=================== 1 failed, 5 passed in 270.31s (0:04:30) ====================
