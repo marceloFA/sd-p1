@@ -5,8 +5,11 @@ import Pyro4
 from models import profile_deserializer
 
 @pytest.fixture
-def server():
-    uri = 'PYRO:ArchiveServer@192.168.0.107:1234'
+def server(pytestconfig):
+    """ Configura uma instância do ArchiveServer para realizar os testes """
+    host_adress = pytestconfig.getoption("host")
+    uri = f'PYRO:ArchiveServer@{host_adress}:1234'
+
     return Pyro4.Proxy(uri)
 
 

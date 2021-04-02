@@ -5,12 +5,12 @@ import Pyro4
 from models import profile_deserializer
 
 
-def client(archive_server_uri: str) -> None:
+def client(host_adress: str) -> None:
         """ Simula requisições provindas de um cliente
         por meio de chamadas remotas de procedimento """
 
         # server = ArchiveServer() agora se torna:
-        server = Pyro4.Proxy(archive_server_uri)
+        server = Pyro4.Proxy(f'PYRO:ArchiveServer@{host_adress}:1234')
 
         # executa um conjunto chamadas remotas simulando acesso a recursos remotos
         # pode ser extendido para fazer o benchmark depois
@@ -40,4 +40,4 @@ def client(archive_server_uri: str) -> None:
 
 
 if __name__ == "__main__":
-        client(sys.argv[1])
+        client(host_adress=sys.argv[1])

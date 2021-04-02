@@ -1,3 +1,5 @@
+import sys
+
 import Pyro4
 from recordclass import asdict
 
@@ -79,18 +81,18 @@ class ArchiveServer:
         return profile.professional_experience
 
 
-def run_server(nameserver: bool = False):
+def run_server(host: str, nameserver: bool = False):
     """ Expõe o ArchiveServer para chamadas de método remotas """
 
     endpoints_wrapper = {ArchiveServer: "ArchiveServer"}
     Pyro4.Daemon.serveSimple(
         objects=endpoints_wrapper,
-        host='200.239.72.248',
-        port=8089,
+        host=host,
+        port=1234,
         ns=nameserver
     )
 
 
 if __name__ == "__main__":
     # executa este código quando o arquivo é executado como script
-    run_server()
+    run_server(host=sys.argv[1])
