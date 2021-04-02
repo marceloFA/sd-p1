@@ -37,6 +37,6 @@ Um exemplo completo de resultado destes testes pode ser lido em `benchmark_resul
 
 ```python
     # Obs: utilize seu ip próprio
-    pytest --host 192.168.0.107 test_benchmark.py 
+    pytest --host 192.168.0.1 test_benchmark.py 
 ```
 
