@@ -86,10 +86,7 @@ def run_server(host: str, nameserver: bool = False):
 
     endpoints_wrapper = {ArchiveServer: "ArchiveServer"}
     Pyro4.Daemon.serveSimple(
-        objects=endpoints_wrapper,
-        host=host,
-        port=1234,
-        ns=nameserver
+        objects=endpoints_wrapper, host=host, port=1234, ns=nameserver
     )
 
 
