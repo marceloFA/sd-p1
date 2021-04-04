@@ -7,7 +7,7 @@
 1. Interpretador python3 (Instruções em https://python.org.br/instalacao-linux/)
 2. Gerenciador de pacotes python, pip3 (Instruções em: https://sempreupdate.com.br/como-instalar-o-pip-no-ubuntu/)
 `sudo apt install python3-pip`
-3, Ambiente virtual (opcional):
+3. Ambiente virtual (opcional):
     `pip3 install virtualenv`
     `virtualenv venv`
     `source/venv/activate`
