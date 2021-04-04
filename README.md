@@ -3,15 +3,18 @@
 
 ### Requisitos de sistema
 
-0. UNIX ou macOS
-1. python3
-2. pip3
+0. Sistema operacional: UNIX ou macOS
+1. Interpretador python3 (Instruções em https://python.org.br/instalacao-linux/)
+2. Gerenciador de pacotes python, pip3 (Instruções em: https://sempreupdate.com.br/como-instalar-o-pip-no-ubuntu/)
+`sudo apt install python3-pip`
 3, Ambiente virtual (opcional):
-`virtualenv venv && source/venv/activate`
-4. Instalar dependências:
-`pip3 install -r requirements.txt`
+    `pip3 install virtualenv`
+    `virtualenv venv`
+    `source/venv/activate`
+4. Instalar dependências do projeto:
+    `pip3 install -r requirements.txt`
 5. Descobrir seu endereço IP local:
-`ifconfig | grep 192`
+    `ifconfig | grep 192`
 
 ### Como executar o servidor de perfis
 
@@ -23,7 +26,7 @@ Por padrão, o servidor será executado na porta 1234. O seu endreço ip própri
 
 ### Como executar o cliente
 
-O script cliente faz um conjunto de requisições, como sugeridas na definição da tarefa. Após finalizar uma requisição um resultado é impresso. Após finalizar todas as requisições, o processo cliente é encerrado.
+O script cliente faz um conjunto de requisições, como sugeridas na definição da tarefa. Após finalizar uma requisição talvez algum resultado seja impresso. Após finalizar todas as requisições, o processo cliente é encerrado.
 
 ```python
     # Obs: utilize seu ip próprio
