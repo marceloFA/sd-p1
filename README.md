@@ -3,13 +3,14 @@
 
 ### Requisitos de sistema
 
-- python3
-- pip3
-- Ambiente virtual (opcional):
+0. UNIX ou macOS
+1. python3
+2. pip3
+3, Ambiente virtual (opcional):
 `virtualenv venv && source/venv/activate`
-- Instalar dependências:
+4. Instalar dependências:
 `pip3 install -r requirements.txt`
-- Descobrir seu endereço IP local:
+5. Descobrir seu endereço IP local:
 `ifconfig | grep 192`
 
 ### Como executar o servidor de perfis
